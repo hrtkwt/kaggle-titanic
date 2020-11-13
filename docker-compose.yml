@@ -1,0 +1,11 @@
+version: '3'
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: anaconda3_2020_07
+    ports:
+    - "8888:8888"
+    volumes:
+    - .:/workdir
