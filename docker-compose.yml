@@ -4,8 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: anaconda3_2020_07
+    image: continuumio/anaconda3:latest
     ports:
     - "8888:8888"
     volumes:
-    - .:/workdir
+    - .:/work
