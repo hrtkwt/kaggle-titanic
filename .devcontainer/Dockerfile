@@ -4,10 +4,7 @@ FROM continuumio/anaconda3:latest
 RUN pip install --upgrade pip && pip install autopep8 && pip install Keras && pip install tensorflow 
 
 # コンテナ側のルート直下にworkという名前の作業ディレクトリを作り移動する
-WORKDIR /work
-
-# コンテナ側のリッスンポート番号
-EXPOSE 8888
+WORKDIR /workspace
 
 # ENTRYPOINT命令はコンテナ起動時に実行するコマンドを指定（基本docker runの時に上書きしないもの）
 # "jupyter-lab" => jupyter-lab立ち上げコマンド
@@ -20,4 +17,4 @@ ENTRYPOINT ["jupyter-lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--all
 
 # CMD命令はコンテナ起動時に実行するコマンドを指定（docker runの時に上書きする可能性のあるもの）
 # "--notebook-dir=/work" => Jupyter Labのルートとなるディレクトリを指定
-CMD ["--notebook-dir=/work"]
+CMD ["--notebook-dir=/workspace"]
